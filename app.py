@@ -83,15 +83,71 @@ tab1, tab2, tab3, tab4 = st.tabs(
 
 # HomePage
 with tab1:
-    st.title("CipherLock");
-    st.subheader("Your Secure Data Vault");
-    st.write("Securely store and retrieve your secrets with just a passkey — no database, no leaks, just pure encryption magic..");
-    st.markdown("""
-    - Encrypt any message using a secret passkey.  
-    - Your data is stored only in memory.  
-    - Only you can decrypt it with the right key.  
-    - After 3 failed tries, you'll be asked to log in again for safety.  
-    """)
+    # st.title("CipherLock");
+    # st.subheader("Your Secure Data Vault");
+    # st.write("Securely store and retrieve your secrets with just a passkey — no database, no leaks, just pure encryption magic..");
+    # st.markdown("""
+    # - Encrypt any message using a secret passkey.  
+    # - Your data is stored only in memory.  
+    # - Only you can decrypt it with the right key.  
+    # - After 3 failed tries, you'll be asked to log in again for safety.  
+    # """)
+    
+    st.markdown("<h1 style='text-align: center; color: #4CAF50;'>🔐 CipherLock</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #777;'>Your Secure Data Vault</h3>", unsafe_allow_html=True)
+
+    st.write("")
+
+    st.markdown(
+        """
+        <div style='text-align: center; font-size: 16px;'>
+            CipherLock is a <strong>zero-database</strong>, <strong>memory-only</strong> encryption vault.<br>
+            Store & retrieve sensitive info using just a passkey.<br><br>
+            Everything stays local. No sign-up. No storage. Just <i>pure encryption magic</i>.
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.write("")
+    st.divider()
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.subheader("How It Works?")
+        st.markdown(
+            """
+            - Enter your message  
+            - Lock it with a passkey  
+            - Retrieve it only with the same passkey  
+            - After 3 wrong tries? You're locked out 🔐
+            """
+        )
+
+    with col2:
+        st.subheader("Why Use It?")
+        st.markdown(
+            """
+            - Lightweight, fast, and secure  
+            - No account needed  
+            - Perfect for quick secrets  
+            - Great for demos or testing encrypted workflows  
+            """
+        )
+
+
+    # st.subheader("👨‍💻 About the Developer")
+    with st.expander("## About the Developer "):
+        st.markdown(
+            """
+            **Aqsaa Qaazi** — a developer who loves building secure, snappy, and stylish tools.
+            
+            This project was built using **Streamlit**, **Fernet encryption**, and a dash of dedication ❤️.
+            """
+        )
+
+    st.write("")
 
 # Store Data Page
 with tab2:
