@@ -56,13 +56,14 @@ def encrypt_data(text, passkey):
 # Fernet Decrypt
 def decrypt_data(encrypted_text, passkey):
     """
-    Attempt to decrypt only if passkey matches stored hash.
-    Allows 3 attempts before locking.
+    Decrypts the encrypted data only if passkey matches.
+    Returns decrypted text or None if the passkey is wrong.
+    Locks after 3 failed attempts.
     """
     global failed_attempts
     hashed_passkey = hash_passkey(passkey)
 
-    # Validate against stored entries
+    # Validate against stored data
     entry = stored_data.get(encrypted_text)
     if entry and entry["passkey"] == hashed_passkey:
         failed_attempts = 0
@@ -198,7 +199,7 @@ with tab4:
     if st.button("Login"):
         if hash_passkey(login_pass) == MASTER_HASHED:
             failed_attempts = 0
-            st.success("Reauthorized successfully! Redirecting...")
-            st.experimental_rerun()
+            st.success("Reauthorized successfully!")
+            # st.experimental_rerun()
         else:
             st.error("Incorrect password.")
